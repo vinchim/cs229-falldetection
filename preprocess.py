@@ -228,7 +228,7 @@ class MoveNetPreprocessor(object):
 
 import os
 
-IMAGES_ROOT = 'YOUR_DATASET_DIR_NAME'
+IMAGES_ROOT = '~/data/'
 # You can leave the rest alone:
 if not os.path.isdir(IMAGES_ROOT):
   raise Exception("dataset_in is not a valid directory")
