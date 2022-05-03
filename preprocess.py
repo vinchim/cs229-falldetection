@@ -96,7 +96,7 @@ class MoveNetPreprocessor(object):
  
     # Get list of pose classes and print image statistics
     self._pose_class_names = sorted(
-        ["1219", "1260", "1301", "1373", "1378", "1392", "1790", "1843", "1954", "2123", "489", "569", "581", "722", "731", "758", "786", "807", "832", "925"]
+        [n for n in os.listdir(self._images_in_folder) if not n.startswith('.')]
         )
     
   def process(self, per_pose_class_limit=None, detection_threshold=0.1):
@@ -228,10 +228,10 @@ class MoveNetPreprocessor(object):
 
 import os
 
-IMAGES_ROOT = '~/data/'
+IMAGES_ROOT = '../data'
 # You can leave the rest alone:
 if not os.path.isdir(IMAGES_ROOT):
-  raise Exception("dataset_in is not a valid directory")
+  raise Exception(IMAGES_ROOT, "is not a valid directory")
 
 images_in_train_folder = os.path.join(IMAGES_ROOT)
 csvs_out_train_path = 'train_data.csv'
