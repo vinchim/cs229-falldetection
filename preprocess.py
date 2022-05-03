@@ -65,7 +65,6 @@ class MoveNetPreprocessor(object):
  #VINCENT: i added a new name for where the labels are 
   def __init__(self,
                images_in_folder,
-               labels_in_folder,
                csvs_out_path):
     """Creates a preprocessor to detection pose from images and save as CSV.
 
@@ -86,7 +85,6 @@ class MoveNetPreprocessor(object):
     """
     self._images_in_folder = images_in_folder
     self._csvs_out_path = csvs_out_path
-    self._labels_in_folder = labels_in_folder
     self._messages = []
 
     # Create a temp dir to store the pose CSVs per class
