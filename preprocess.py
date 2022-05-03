@@ -64,9 +64,10 @@ def detect(input_tensor, inference_count=3):
 
 class MoveNetPreprocessor(object):
   """Helper class to preprocess pose sample images for classification."""
- 
+ #VINCENT: i added a new name for where the labels are 
   def __init__(self,
                images_in_folder,
+               labels_in_folder,
                csvs_out_path):
     """Creates a preprocessor to detection pose from images and save as CSV.
 
@@ -80,8 +81,6 @@ class MoveNetPreprocessor(object):
             |______ ...
         |__ goddess
             |______ 00000243.jpg
-            |______ 00000306.jpg
-            |______ ...
         ...
       csvs_out_path: Path to write the CSV containing the detected landmark
         coordinates and label of each image that can be used to train a pose
@@ -89,6 +88,7 @@ class MoveNetPreprocessor(object):
     """
     self._images_in_folder = images_in_folder
     self._csvs_out_path = csvs_out_path
+    self._labels_in_folder = labels_in_folder
     self._messages = []
 
     # Create a temp dir to store the pose CSVs per class
