@@ -21,8 +21,8 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 # Download model from TF Hub and check out inference code from GitHub
 # !wget -q -O movenet_thunder.tflite https://tfhub.dev/google/lite-model/movenet/singlepose/thunder/tflite/float16/4?lite-format=tflite
 # !git clone https://github.com/tensorflow/examples.git
-# pose_sample_rpi_path = os.path.join(os.getcwd(), 'examples/lite/examples/pose_estimation/raspberry_pi')
-# sys.path.append(pose_sample_rpi_path)
+pose_sample_rpi_path = os.path.join(os.getcwd(), '../examples/lite/examples/pose_estimation/raspberry_pi')
+sys.path.append(pose_sample_rpi_path)
 
 # Load MoveNet Thunder model
 import utils
