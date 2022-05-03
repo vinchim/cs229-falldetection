@@ -116,6 +116,9 @@ class MoveNetPreprocessor(object):
       images_in_folder = os.path.join(self._images_in_folder, pose_class_name, 'rgb')
       csv_out_path = os.path.join(self._csvs_out_folder_per_class,
                                   pose_class_name + '.csv')
+      #VINCENT: make dataframe from labels.csv
+      labelspath = pose_class_name + '\labels.csv'
+      df = pd.read_csv(labelspath)  
  
       # Detect landmarks in each image and write it to a CSV file
       with open(csv_out_path, 'w') as csv_out_file:
@@ -141,6 +144,7 @@ class MoveNetPreprocessor(object):
             self._messages.append('Skipped ' + image_path + '. Invalid image.')
             continue
           else:
+            #VINCENT: image names are rgb_#.png
             image = tf.io.read_file(image_path)
             image = tf.io.decode_image(image)
             image_height, image_width, channel = image.shape
