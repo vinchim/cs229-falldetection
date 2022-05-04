@@ -123,10 +123,10 @@ class MoveNetPreprocessor(object):
             csv_out_writer = csv.writer(csv_out_file, 
                                         delimiter=',', 
                                         quoting=csv.QUOTE_MINIMAL)
-            csv_reader = list(csv.reader(labels_file))
-            labels_out_writer = csv.writer(labels_out_file, 
-                                           delimiter=',', 
-                                           quoting=csv.QUOTE_MINIMAL)
+            # csv_reader = list(csv.reader(labels_file))
+            # labels_out_writer = csv.writer(labels_out_file, 
+                                          #  delimiter=',', 
+                                          #  quoting=csv.QUOTE_MINIMAL)
             # Get list of images
             image_names = sorted(
                 [n for n in os.listdir(images_in_folder) if not n.startswith('.')])
@@ -177,7 +177,7 @@ class MoveNetPreprocessor(object):
               # Write the landmark coordinates to its per-class CSV file
               coordinates = pose_landmarks.flatten().astype(np.str).tolist()
               csv_out_writer.writerow([image_name] + coordinates)
-              labels_out_writer.writerow([image_name] + [csv_reader[idx][1]])
+              # labels_out_writer.writerow([image_name] + [csv_reader[idx][1]])
             if not valid_image_count:
               raise RuntimeError(
                   'No valid images found for the "{}" class.'
