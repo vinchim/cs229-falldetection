@@ -88,12 +88,14 @@ class MoveNetPreprocessor(object):
     self._messages = []
 
     # Create a temp dir to store the pose CSVs per class
-    self._csvs_out_folder_per_class = tempfile.mkdtemp()
+    # self._csvs_out_folder_per_class = tempfile.mkdtemp()
+    self._csvs_out_folder_per_class = '/tmp/tmpthpnu1hi'
  
     # Get list of pose classes and print image statistics
     self._pose_class_names = sorted(
         [n for n in os.listdir(self._images_in_folder) if not n.startswith('.')]
         )
+    # did not fully process 2123
     
   def process(self, per_pose_class_limit=None, detection_threshold=0.1):
     """Preprocesses images in the given folder.
@@ -115,6 +117,8 @@ class MoveNetPreprocessor(object):
       labels_path = os.path.join(self._images_in_folder, pose_class_name, 'labels.csv')
       labels_out_path = os.path.join(self._csvs_out_folder_per_class,
                                   pose_class_name + '_labels.csv')
+      
+      if os.path.exists(csv_out_path): continue
  
       # Detect landmarks in each image and write it to a CSV file
       with open(csv_out_path, 'w') as csv_out_file:
@@ -197,14 +201,14 @@ class MoveNetPreprocessor(object):
   def _all_landmarks_as_dataframe(self):
     """Merge all per-class CSVs into a single dataframe."""
     total_df = None
-    total_labels = None
+    # total_labels = None
     for class_index, class_name in enumerate(self._pose_class_names):
       csv_out_path = os.path.join(self._csvs_out_folder_per_class,
                                   class_name + '.csv')
-      labels_out_path = os.path.join(self._csvs_out_folder_per_class,
-                                  class_name + '_labels.csv')
+      # labels_out_path = os.path.join(self._csvs_out_folder_per_class,
+      #                             class_name + '_labels.csv')
       per_class_df = pd.read_csv(csv_out_path, header=None)
-      per_class_labels = pd.read_csv(labels_out_path, header=None)
+      # per_class_labels = pd.read_csv(labels_out_path, header=None)
       
       # Add the labels
       per_class_df['class_no'] = [class_index]*len(per_class_df)
@@ -217,11 +221,11 @@ class MoveNetPreprocessor(object):
       if total_df is None:
         # For the first class, assign its data to the total dataframe
         total_df = per_class_df
-        total_labels = per_class_labels
+        # total_labels = per_class_labels
       else:
         # Concatenate each class's data into the total dataframe
         total_df = pd.concat([total_df, per_class_df], axis=0)
-        per_class_labels = pd.concat([total_labels, per_class_labels], axis=0)
+        # per_class_labels = pd.concat([total_labels, per_class_labels], axis=0)
  
     list_name = [[bodypart.name + '_x', bodypart.name + '_y', 
                   bodypart.name + '_score'] for bodypart in BodyPart] 
