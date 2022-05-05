@@ -208,6 +208,7 @@ class MoveNetPreprocessor(object):
                                   class_name + '.csv')
       # labels_out_path = os.path.join(self._csvs_out_folder_per_class,
       #                             class_name + '_labels.csv')
+      print("Reading", csv_out_path)
       per_class_df = pd.read_csv(csv_out_path, header=None)
       # per_class_labels = pd.read_csv(labels_out_path, header=None)
       
