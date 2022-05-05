@@ -122,8 +122,8 @@ class MoveNetPreprocessor(object):
  
       # Detect landmarks in each image and write it to a CSV file
       with open(csv_out_path, 'w') as csv_out_file:
-        with open(labels_path, 'r') as labels_file:
-          with open(labels_out_path, 'w') as labels_out_file:
+        # with open(labels_path, 'r') as labels_file:
+          # with open(labels_out_path, 'w') as labels_out_file:
             csv_out_writer = csv.writer(csv_out_file, 
                                         delimiter=',', 
                                         quoting=csv.QUOTE_MINIMAL)
