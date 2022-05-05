@@ -108,6 +108,7 @@ class MoveNetPreprocessor(object):
     """
     # Loop through the classes and preprocess its images
     for pose_class_name in self._pose_class_names:
+      if pose_class_name == 'download_dataset.sh': continue
       print('Preprocessing', pose_class_name, file=sys.stderr)
       
       # Paths for the pose class.
