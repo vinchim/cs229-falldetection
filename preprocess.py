@@ -93,7 +93,7 @@ class MoveNetPreprocessor(object):
  
     # Get list of pose classes and print image statistics
     self._pose_class_names = sorted(
-        [n for n in os.listdir(self._images_in_folder) if not n.startswith('.')]
+        [n for n in os.listdir(self._images_in_folder) if not n.startswith('.') and os.path.isdir(images_in_folder + '/' + n)]
         )
     # did not fully process 2123
     
