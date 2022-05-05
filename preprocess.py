@@ -204,6 +204,7 @@ class MoveNetPreprocessor(object):
     total_df = None
     # total_labels = None
     for class_index, class_name in enumerate(self._pose_class_names):
+      if class_name == 'download_dataset.sh': continue
       csv_out_path = os.path.join(self._csvs_out_folder_per_class,
                                   class_name + '.csv')
       # labels_out_path = os.path.join(self._csvs_out_folder_per_class,
