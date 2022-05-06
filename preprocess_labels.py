@@ -19,11 +19,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 def main():
-    data = pd.read_csv("cs229-falldetection\data.csv")
+    data = pd.read_csv("..\halde\cs229-falldetection\data.csv")
     num_files, features = data.shape 
     labelsDict = {}
     datasets = [1301, 1790, 722, 1378, 1392, 807, 758, 1843, 569, 1260, 489, 731, 1219, 1954, 581, 1176, 2123, 832, 786, 925]
-    path = "data\xyz\labels.csv"
+    path = "..\halde\data\xyz\labels.csv"
     answer = []
     #make all the dataset labels into dataframes and put them in a dictionary
     for dset in datasets:
