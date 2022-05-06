@@ -32,4 +32,4 @@ def main():
         answer.append(currLabel)
 
     a = np.array(lst)
-    np.savetxt('processedLabels.csv', a, delimiter=",")
+    np.savetxt('cs229-falldetection/processedLabels.csv', a, delimiter=",")
