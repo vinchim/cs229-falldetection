@@ -4,6 +4,7 @@ import pandas as pd
 
 def main():
     data = pd.read_csv("../halde/cs229-falldetection/data.csv")
+    print (data)
     num_files, features = data.shape 
     labelsDict = {}
     datasets = [1301, 1790, 722, 1378, 1392, 807, 758, 1843, 569, 1260, 489, 731, 1219, 1954, 581, 1176, 2123, 832, 786, 925]
