@@ -32,4 +32,5 @@ def main():
         answer.append(currLabel)
 
     a = np.array(answer)
+    print(a.T)
     np.savetxt('../processedLabels.csv', a.T, delimiter=",")
