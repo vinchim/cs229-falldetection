@@ -31,5 +31,5 @@ def main():
         currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
         answer.append(currLabel)
 
-    a = np.array(lst)
+    a = np.array(answer)
     np.savetxt('../processedLabels.csv', a, delimiter=",")
