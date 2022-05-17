@@ -23,7 +23,7 @@ def main():
     num_files, features = data.shape 
     labelsDict = {}
     datasets = [1301, 1790, 722, 1378, 1392, 807, 758, 1843, 569, 1260, 489, 731, 1219, 1954, 581, 1176, 2123, 832, 786, 925]
-    path = "..\data\xyz\labels.csv"
+    path = "\data\xyz\labels.csv"
     answer = []
     #make all the dataset labels into dataframes and put them in a dictionary
     for dset in datasets:
@@ -47,5 +47,5 @@ def main():
         currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
         answer.append(currLabel)
 
-    a = np.array(lst)
+    a = np.array(labelsDict)
     np.savetxt('processedLabels.csv', a, delimiter=",")
