@@ -37,7 +37,7 @@ def main():
     for row in data.iterrows():
         #extract the file name
         #example: dataset/rgb_0001.png
-        print(row[0][0])
+        print(row[0])
         currFile = row["file_name"]
         names = currFile.split("/", 1) 
         currDsetName = names[0]
