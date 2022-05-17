@@ -48,6 +48,7 @@ def main():
         try:
             currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
         except:
+            print(currFile)
             continue
         answer.append(currLabel)
 
