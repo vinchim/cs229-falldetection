@@ -20,33 +20,33 @@ def main():
         
     #go through each row of the data and add their corresponding label to the array
 
-    with open(data, "r") as f:
-        reader = csv.reader(f, delimiter="\t")
-        for i, row in enumerate(reader):
-            currFile = row[0]
-            names = currFile.split("/", 1)
-            currDsetName = names[0]
-            currDset = labelsDict[int(currDsetName)]
+    # with open(data, "r") as f:
+    #     reader = csv.reader(f, delimiter="\t")
+    #     for i, row in enumerate(reader):
+    #         currFile = row[0]
+    #         names = currFile.split("/", 1)
+    #         currDsetName = names[0]
+    #         currDset = labelsDict[int(currDsetName)]
 
-            temp = names[1].split("_", 1)
-            temp2 = temp[1].split(".",1)
-            index = int(temp2[0])
-            currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
-            answer.append(currLabel)
+    #         temp = names[1].split("_", 1)
+    #         temp2 = temp[1].split(".",1)
+    #         index = int(temp2[0])
+    #         currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
+    #         answer.append(currLabel)
            
-    # for row in data.rows:
-    #     #extract the file name
-    #     #example: dataset/rgb_0001.png
-    #     currFile = row["file_name"]
-    #     names = currFile.split("/", 1) 
-    #     currDsetName = names[0]
-    #     currDset = labelsDict[int(currDsetName)]
+    for row in data.iterrows:
+        #extract the file name
+        #example: dataset/rgb_0001.png
+        currFile = row["file_name"]
+        names = currFile.split("/", 1) 
+        currDsetName = names[0]
+        currDset = labelsDict[int(currDsetName)]
         
-    #     temp = names[1].split("_", 1)
-    #     temp2 = temp[1].split(".",1)
-    #     index = int(temp2[0])
-    #     currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
-    #     answer.append(currLabel)
+        temp = names[1].split("_", 1)
+        temp2 = temp[1].split(".",1)
+        index = int(temp2[0])
+        currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
+        answer.append(currLabel)
 
     a = np.array(answer)
     print(a.T)
