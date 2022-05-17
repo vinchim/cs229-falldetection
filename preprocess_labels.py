@@ -27,9 +27,9 @@ def main():
     answer = []
     #make all the dataset labels into dataframes and put them in a dictionary
     for dset in datasets:
-        currpath = path.replace("xyz", dset)
+        currpath = path.replace("xyz", str(dset))
         currData = pd.read_csv(currpath)
-        currData = currData.astype({"index":"int","class":"int"})
+        currData = currData.astype({"index":"int", "class":"int"})
         labelsDict[dset] = currData
         
     #go through each row of the data and add their corresponding label to the array
