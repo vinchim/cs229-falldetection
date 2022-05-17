@@ -35,3 +35,6 @@ def main():
     a = np.array(answer)
     print(a.T)
     np.savetxt('processedLabels.csv', a.T, delimiter=",")
+
+if __name__ == "__main__":
+    main()
