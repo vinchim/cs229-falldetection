@@ -41,6 +41,7 @@ def main():
         names = currFile.split("/", 1) 
         currDsetName = names[0]
         currDset = labelsDict[int(currDsetName)]
+        print(currDset)
         
         temp = names[1].split("_", 1)
         temp2 = temp[1].split(".",1)
