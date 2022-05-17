@@ -3,12 +3,12 @@ import numpy as np
 import pandas as pd
 
 def main():
-    data = pd.read_csv("../halde/cs229-falldetection/data.csv")
+    data = pd.read_csv("data.csv")
     print (data)
     num_files, features = data.shape 
     labelsDict = {}
     datasets = [1301, 1790, 722, 1378, 1392, 807, 758, 1843, 569, 1260, 489, 731, 1219, 1954, 581, 1176, 2123, 832, 786, 925]
-    path = "../halde/data/xyz/labels.csv"
+    path = "/data/xyz/labels.csv"
     answer = []
     #make all the dataset labels into dataframes and put them in a dictionary
     for dset in datasets:
@@ -34,4 +34,4 @@ def main():
 
     a = np.array(answer)
     print(a.T)
-    np.savetxt('../processedLabels.csv', a.T, delimiter=",")
+    np.savetxt('processedLabels.csv', a.T, delimiter=",")
