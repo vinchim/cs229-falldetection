@@ -34,7 +34,7 @@ def main():
     #         currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
     #         answer.append(currLabel)
            
-    for row in data.iterrows:
+    for row in data.iterrows():
         #extract the file name
         #example: dataset/rgb_0001.png
         currFile = row["file_name"]
