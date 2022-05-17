@@ -41,11 +41,11 @@ def main():
         names = currFile.split("/", 1) 
         currDsetName = names[0]
         currDset = labelsDict[int(currDsetName)]
-        print(currDset)
         
         temp = names[1].split("_", 1)
         temp2 = temp[1].split(".",1)
         index = int(temp2[0])
+        print(currDset.loc[currDset['index'] == index,'class'])
         currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
         answer.append(currLabel)
 
