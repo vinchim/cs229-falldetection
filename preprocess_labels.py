@@ -49,3 +49,6 @@ def main():
 
     a = np.array(labelsDict)
     np.savetxt('processedLabels.csv', a, delimiter=",")
+
+if __name__ == "__main__":
+    main()
