@@ -7,7 +7,7 @@ def main():
     data = pd.read_csv("data.csv")
     print(data)
 
-    with open('data.csv', 'rb') as inp, open('data_clean.csv', 'wb') as out:
+    with open('data.csv', 'r') as inp, open('data_clean.csv', 'w') as out:
         writer = csv.writer(out)
         # go through each row of the data
         for row in csv.reader(inp):
