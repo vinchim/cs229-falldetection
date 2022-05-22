@@ -15,7 +15,7 @@ def main():
             # example: dataset/rgb_0001.png
             file = row[1]["file_name"]
             names = file.split("/", 1)
-            group = names[0]
+            group = int(names[0])
             index = int(names[1].split("_", 1)[1].split(".",1)[0])
             if index <= group:
                 writer.writerow(row)
