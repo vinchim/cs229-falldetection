@@ -19,16 +19,17 @@ def main():
         
     #go through each row of the data and add their corresponding label to the array
     for row in data.iterrows():
-        #extract the file name
-        #example: dataset/rgb_0001.png
+        # extract the file name
+        # example: dataset/rgb_0001.png
         currFile = row[1]["file_name"]
-        names = currFile.split("/", 1) 
+        names = currFile.split("/", 1)
         currDsetName = names[0]
         currDset = labelsDict[int(currDsetName)]
         
         temp = names[1].split("_", 1)
         temp2 = temp[1].split(".",1)
         index = int(temp2[0])
+        print(currFile, names, currDsetName, index)
         try:
             currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
         except:
