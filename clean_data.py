@@ -7,13 +7,13 @@ def main():
     data = pd.read_csv("data.csv")
     print(data)
 
-    with open('data_clean.csv', 'wb') as out:
+    with open('data.csv', 'rb') as inp, open('data_clean.csv', 'wb') as out:
         writer = csv.writer(out)
         # go through each row of the data
-        for row in data.iterrows():
+        for row in csv.reader(inp):
             # extract the file name
             # example: dataset/rgb_0001.png
-            file = row[1]["file_name"]
+            file = row[0]
             names = file.split("/", 1)
             group = int(names[0])
             index = int(names[1].split("_", 1)[1].split(".",1)[0])
