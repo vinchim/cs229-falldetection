@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 def main():
-    data = pd.read_csv("data.csv")
+    data = pd.read_csv("data_clean.csv")
     print(data)
     num_files, features = data.shape 
     labelsDict = {}
