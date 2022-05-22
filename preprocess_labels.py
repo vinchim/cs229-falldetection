@@ -34,6 +34,7 @@ def main():
         except:
             print('Could not processs', currFile, index)
             print(currDset)
+            answer.append(0)
             continue
         answer.append(currLabel)
 
