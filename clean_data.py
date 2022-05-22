@@ -14,7 +14,9 @@ def main():
             # extract the file name
             # example: dataset/rgb_0001.png
             file = row[0]
-            if (file == 'file_name'): continue
+            if (file == 'file_name'):
+                writer.writerow(row)
+                continue
             names = file.split("/", 1)
             group = int(names[0])
             index = int(names[1].split("_", 1)[1].split(".",1)[0])
