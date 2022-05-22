@@ -16,6 +16,8 @@ def main():
         currData = pd.read_csv(currpath)
         currData = currData.astype({"index":"int","class":"int"})
         labelsDict[dset] = currData
+    
+    print(labelsDict)
         
     #go through each row of the data and add their corresponding label to the array
     for row in data.iterrows():
@@ -29,11 +31,10 @@ def main():
         temp = names[1].split("_", 1)
         temp2 = temp[1].split(".",1)
         index = int(temp2[0])
-        print(currFile, names, currDsetName, index)
         try:
             currLabel = currDset.loc[currDset['index'] == index,'class'].values[0]
         except:
-            print(currFile)
+            # print('Could not processs', currFile)
             continue
         answer.append(currLabel)
 
