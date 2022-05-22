@@ -33,6 +33,7 @@ def main():
             currLabel = currDset.loc[currDset['index'] == index, 'class'].values[0]
         except:
             print('Could not processs', currFile, index)
+            print(currDset)
             continue
         answer.append(currLabel)
 
