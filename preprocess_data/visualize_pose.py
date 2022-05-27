@@ -93,9 +93,10 @@ def draw_prediction_on_image(
 
   return image_np
 
-image = tf.io.read_file('images/rgb_0115.png')
-image = tf.io.decode_jpeg(image)
-person = detect(image)
-predicted = draw_prediction_on_image(image.numpy(), person, crop_region=None, 
+for filename in os.listdir('./images'):
+    image = tf.io.read_file('.images/' + filename)
+    image = tf.io.decode_jpeg(image)
+    person = detect(image)
+    predicted = draw_prediction_on_image(image.numpy(), person, crop_region=None, 
                                close_figure=False, keep_input_size=True)
-cv2.imwrite('./images/rgb_0115_pred.png', predicted)
+    cv2.imwrite('./images/' + os.path.splitext(filename)[0] + '_pred.png', predicted)
