@@ -94,7 +94,7 @@ def draw_prediction_on_image(
   return image_np
 
 for filename in os.listdir('./images'):
-    image = tf.io.read_file('.images/' + filename)
+    image = tf.io.read_file('./images/' + filename)
     image = tf.io.decode_jpeg(image)
     person = detect(image)
     predicted = draw_prediction_on_image(image.numpy(), person, crop_region=None, 
