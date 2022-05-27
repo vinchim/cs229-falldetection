@@ -96,5 +96,6 @@ def draw_prediction_on_image(
 image = tf.io.read_file('images/rgb_0115.png')
 image = tf.io.decode_jpeg(image)
 person = detect(image)
-_ = draw_prediction_on_image(image.numpy(), person, crop_region=None, 
+predicted = draw_prediction_on_image(image.numpy(), person, crop_region=None, 
                                close_figure=False, keep_input_size=True)
+cv2.imwrite('./images/rgb_0115_pred.png', predicted)
