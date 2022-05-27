@@ -99,4 +99,4 @@ for filename in os.listdir('./images'):
     person = detect(image)
     predicted = draw_prediction_on_image(image.numpy(), person, crop_region=None, 
                                close_figure=False, keep_input_size=True)
-    cv2.imwrite('./images/' + os.path.splitext(filename)[0] + '_pred.png', predicted)
+    cv2.imwrite('./pred/' + filename, cv2.cvtColor(predicted, cv2.COLOR_RGB2BGR))
