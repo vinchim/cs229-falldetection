@@ -26,7 +26,7 @@ sys.path.append(pose_sample_rpi_path)
 import utils
 from data import BodyPart
 from ml import Movenet
-movenet = Movenet('../movenet_thunder')
+movenet = Movenet('../../movenet_thunder')
 
 # Define function to run pose estimation using MoveNet Thunder.
 # You'll apply MoveNet's cropping algorithm and run inference multiple times on
